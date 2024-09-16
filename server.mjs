@@ -21,19 +21,19 @@ app.get('/status', (req, res) => {
 
 app.get('/images/icons/:id', async (req, res) => {
     const pattern = `.*${req.params.id}_1done.jpg`;
-    const path = '/Users/gregoryporter/Projects/botany-server/data/';
+    const path = '/Users/gregoryporter/Projects/paleoethnobotany/peb-server/data/';
     const result = await FindFiles(path, pattern);
 
     if (result && result[0]) {
         let filename = path + result[0].file;
         res.sendFile(filename);
     } else {
-        res.sendFile('/Users/gregoryporter/Projects/botany-server/Cassia_abbreviata_A_Ventral_95-0018.jpg');
+        res.sendFile('/Users/gregoryporter/Projects/paleoethnobotany/peb-server/Cassia_abbreviata_A_Ventral_95-0018.jpg');
     }
 });
 
 app.get('/images/dropdown/:name', (req, res) => {
-    res.sendFile('/Users/gregoryporter/Projects/botany-server/dropdown/' + req.params.name + '.png');
+    res.sendFile('/Users/gregoryporter/Projects/paleoethnobotany/peb-server/dropdown/' + req.params.name + '.png');
 });
 
 app.get('/data', (req, res) => {
@@ -54,7 +54,7 @@ let server = app.listen(port, () => {
 });
 
 //when running, uncomment export default server
-//export default server;
+export default server;
 
 //when testing, uncomment export default server
-module.exports = server;
+//module.exports = server;
